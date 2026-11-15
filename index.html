@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Best of the Year</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* VOICE: playful and polished — a sheet of bright stickers, cleanly set
+   IDEA: a sticker sheet: hot-pink hero dotted with round and square stickers; every promotion gets its own tinted tile
+   PICTURE: the quick-entry card lifts off the pink hero; stats are colour tiles, a podium and tinted chips
+   COLOUR and TYPE: white ground, hot pink lead, orange / yellow / cobalt / mint stickers, ink; Unbounded headings + Inter
+   LAYOUT: hero, then content up to 1180px; form + "on this show" side by side on wide screens; floating dark tab bar */
+:root{color-scheme:light dark;
+--bg:light-dark(#ffffff,#121018);--sunk:light-dark(#f4f2f7,#2a2536);--card:light-dark(#ffffff,#1e1a28);--btn:light-dark(#17131f,#ffffff);--btnfg:light-dark(#ffffff,#17131f);
+--ink:light-dark(#17131f,#f4f1fa);--soft:light-dark(#6a6478,#aaa3bb);--line:light-dark(#e9e6ef,#2d2839);
+--pink:#ff3d8b;--orange:#ff8a00;--yellow:#ffd23f;--blue:#2348e0;--mint:#18c29c;--dark:#17131f;
+--tintmix:light-dark(#fff,#1e1a28)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+[hidden]{display:none!important}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 Inter,system-ui,sans-serif;overflow-x:clip;-webkit-font-smoothing:antialiased;padding-bottom:110px}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.wrap{max-width:1180px;margin:0 auto}
+.uf{font-family:Unbounded,Inter,sans-serif}
+/* hero */
+.hero{position:relative;overflow:hidden;background:var(--pink);color:#fff;border-radius:0 0 36px 36px;padding:44px max(5vw,20px) 84px}
+.st{position:absolute;pointer-events:none}
+.s1{width:150px;height:150px;border-radius:50%;background:var(--orange);right:-30px;top:24px}
+.s2{width:76px;height:76px;border-radius:50%;background:var(--yellow);right:118px;top:128px}
+.s3{width:44px;height:44px;border-radius:12px;background:var(--blue);right:52px;top:184px;transform:rotate(18deg)}
+.s4{width:24px;height:24px;border-radius:50%;background:#fff;right:200px;top:52px}
+.s5{width:58px;height:58px;border-radius:16px;background:var(--mint);right:min(38vw,420px);top:150px;transform:rotate(-14deg)}
+@media(max-width:700px){.s5,.s4{display:none}.s1{width:120px;height:120px;right:-44px;top:-24px}.s2{width:50px;height:50px;right:18px;top:118px}.s3{width:34px;height:34px;right:58px;top:190px}}
+.hero .in{position:relative}
+.kick{font:600 15px Unbounded,sans-serif;margin:0}
+.yrow{display:flex;align-items:center;gap:10px;margin:2px 0 14px}
+.yr{font:900 clamp(60px,12vw,96px)/1 Unbounded,sans-serif;letter-spacing:-.02em}
+.yb{width:44px;height:44px;flex:none;border:0;border-radius:12px;background:#ffffff33;color:#fff;display:grid;place-items:center}
+.yb:hover{background:#ffffff55}
+.yb svg{width:20px;height:20px}
+.yb:disabled{opacity:.35;cursor:default}
+.pills{display:flex;flex-wrap:wrap;gap:8px}
+.pill{border-radius:10px;padding:7px 12px;font-size:14px;font-weight:700;background:#ffffff33;color:#fff}
+.pill.w{background:#fff;color:var(--dark)}
+.pill.sync{display:inline-flex;align-items:center;gap:7px}
+.pill.sync::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--c,#fff)}
+/* nav */
+nav{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:6;background:var(--dark);border-radius:18px;padding:6px;display:flex;gap:2px;box-shadow:0 10px 30px #17131f40;border:1px solid light-dark(transparent,#ffffff22);max-width:calc(100vw - 24px)}
+nav a{padding:12px 18px;border-radius:13px;color:#fff;text-decoration:none;font-weight:650;font-size:15px;white-space:nowrap}
+nav a[aria-current]{background:var(--pink);font-weight:800}
+@media(max-width:400px){nav a{padding:12px 13px}}
+main{padding:0 max(5vw,16px)}
+.lift{position:relative;margin-top:-56px}
+.view-top{padding-top:26px}
+h2{font:800 clamp(20px,2.6vw,24px)/1.15 Unbounded,sans-serif;margin:0 0 14px}
+.big{font:900 clamp(28px,4vw,38px)/1.05 Unbounded,sans-serif;margin:0 0 18px}
+h3{margin:0;font-size:16px;line-height:1.3;font-weight:700}
+.split{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:28px;align-items:start}
+.split>div:last-child{padding-top:76px}
+@media(max-width:860px){.split{grid-template-columns:minmax(0,1fr)}.split>div:last-child{padding-top:0}}
+/* form */
+.sheet{background:var(--card);border-radius:28px;padding:clamp(18px,2.6vw,26px);box-shadow:0 20px 44px #17131f24;border:1px solid var(--line)}
+.lb,label{display:block;font-size:13px;font-weight:650;color:var(--soft);margin:16px 0 7px}
+input,select,textarea{width:100%;font-size:16px;min-height:50px;padding:12px 15px;border:2px solid transparent;border-radius:14px;background:var(--sunk)}
+input:focus,select:focus,textarea:focus{outline:0;border-color:var(--blue);background:var(--card)}
+textarea{min-height:110px;resize:vertical}
+.who{font-size:18px;font-weight:700;min-height:56px}
+.tt{display:flex;gap:8px}
+.tt button{flex:1;border:0;border-radius:14px;padding:12px;min-height:48px;font-weight:700;font-size:15px;background:var(--sunk);color:var(--soft)}
+.tt button[aria-pressed=true]{background:var(--btn);color:var(--btnfg)}
+.psel{position:relative}
+.psel::before{content:"";position:absolute;left:16px;top:50%;width:18px;height:18px;margin-top:-9px;border-radius:50%;background:var(--c,var(--line));pointer-events:none;z-index:1}
+.psel select{appearance:none;-webkit-appearance:none;padding-left:46px;padding-right:44px;font-weight:700;font-size:16px;cursor:pointer;background:color-mix(in srgb,var(--c,transparent) 14%,var(--sunk)) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%236a6478' stroke-width='2.5' stroke-linecap='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") no-repeat right 14px center}
+.sugg{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.sugg:empty{display:none}
+.sugg button{border:0;background:color-mix(in srgb,var(--yellow) 35%,var(--tintmix));border-radius:10px;padding:8px 12px;min-height:40px;font-weight:650;font-size:14px}
+.counts{font-size:13px;color:var(--soft);margin-top:8px;min-height:20px}
+.counts span{display:inline-block;background:var(--sunk);color:var(--ink);border-radius:8px;padding:2px 8px;margin:2px 4px 0 0;font-weight:650}
+.row2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px}
+@media(max-width:440px){.row2{grid-template-columns:minmax(0,1fr)}}
+.go{display:flex;gap:10px;margin-top:22px}
+.heart{width:60px;flex:none;border:2px solid var(--line);background:var(--card);border-radius:18px;display:grid;place-items:center;min-height:58px}
+.heart svg{width:26px;height:26px;fill:none;stroke:var(--soft);stroke-width:2}
+.heart[aria-pressed=true]{background:var(--pink);border-color:var(--pink)}
+.heart[aria-pressed=true] svg{fill:#fff;stroke:#fff}
+.add{flex:1;border:0;background:var(--btn);color:var(--btnfg);border-radius:18px;min-height:58px;font:800 16px Unbounded,sans-serif;transition:transform .1s}
+.add:active{transform:scale(.98)}
+.hint{font-size:13px;color:var(--soft);margin:8px 0 0}
+.hint b{color:var(--pink)}
+.ghost{border:0;background:var(--sunk);border-radius:12px;min-height:44px;padding:8px 16px;font-weight:700;font-size:15px}
+.primary{border:0;background:var(--pink);color:#fff;border-radius:12px;min-height:44px;padding:8px 18px;font-weight:800;font-size:15px}
+.tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:12px}
+/* entries */
+.list{display:grid;gap:10px}
+.ent{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;align-items:start;background:color-mix(in srgb,var(--c) 14%,var(--tintmix));border-radius:18px;padding:14px 10px 14px 16px}
+.meta{margin:4px 0 0;font-size:13px;color:var(--soft);display:flex;flex-wrap:wrap;gap:4px 8px;align-items:center}
+.tag{display:inline-flex;align-items:center;gap:4px;font-weight:700;font-size:12px;border-radius:7px;padding:2px 8px;background:var(--card);color:var(--ink)}
+.tag.p{background:var(--c);color:#fff}
+.tag.h{background:var(--pink);color:#fff}
+.nt{margin:6px 0 0;font-size:14px}
+.act{display:flex;gap:2px}
+.ib{width:40px;height:40px;border:0;border-radius:11px;background:transparent;display:grid;place-items:center;color:var(--soft)}
+.ib:hover{background:var(--card);color:var(--ink)}
+.ib svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.filters{display:grid;grid-template-columns:minmax(0,2fr) repeat(3,minmax(0,1fr));gap:8px;margin-bottom:16px}
+@media(max-width:760px){.filters{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.filters input{grid-column:1/-1}}
+/* stats */
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px;margin-bottom:20px}
+.kpi{border-radius:20px;padding:14px;background:var(--c);color:var(--fg,#fff)}
+.kpi b{display:block;font:900 clamp(26px,4vw,34px)/1.1 Unbounded,sans-serif}
+.kpi span{font-size:13px;font-weight:650}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:14px;align-items:start}
+.pn{background:var(--sunk);border-radius:26px;padding:clamp(16px,2.4vw,22px)}
+.pn.dk{background:#17131f;color:#fff;border:1px solid light-dark(transparent,#ffffff1a)}
+.pn.dk h2{color:var(--pink)}
+.pn.dk .rn small{color:#b8b2c6}
+.pn.dk ol.rows li{border-color:#2f2a3a}
+.hd{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+.hd h2{margin:0}
+.hd select{width:auto;min-height:40px;padding:6px 12px;font-size:14px;background:var(--card)}
+.podium{display:flex;gap:10px;align-items:flex-end;margin-bottom:6px}
+.pod{flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center}
+.pod span{font-size:13px;font-weight:700;line-height:1.2;min-height:32px;display:flex;align-items:flex-end}
+.pod div{width:100%;border-radius:14px 14px 6px 6px;color:#fff;display:grid;place-items:center;font:900 22px Unbounded,sans-serif}
+ol.rows{list-style:none;margin:0;padding:0}
+ol.rows li{display:grid;grid-template-columns:26px minmax(0,1fr) auto;gap:12px;align-items:center;padding:10px 0;border-top:1px solid var(--line)}
+ol.rows li:first-child{border-top:0}
+.rk{font:800 15px Unbounded,sans-serif;color:var(--soft);text-align:center}
+.rn b{display:block;font-weight:700;overflow-wrap:anywhere}
+.rn small{color:var(--soft);font-size:13px}
+.rv{font:800 18px Unbounded,sans-serif;white-space:nowrap;text-align:right}
+.chips{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.chip{background:var(--c);color:#fff;border-radius:10px;padding:.45em .8em;font-weight:750;line-height:1.2}
+.months{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:6px;align-items:end;height:170px}
+.mo{display:flex;flex-direction:column;justify-content:flex-end;align-items:center;height:100%;gap:5px}
+.mo i{display:block;width:100%;background:var(--c,var(--line));border-radius:8px 8px 4px 4px;min-height:4px}
+.mo span{font-size:12px;font-weight:700;color:var(--soft)}
+.mo em{font-style:normal;font-size:12px;font-weight:800}
+.empty{text-align:center;padding:24px 14px;color:var(--soft);border:2px dashed var(--line);border-radius:18px}
+.pn.dk .empty{border-color:#2f2a3a;color:#b8b2c6}
+.empty b{display:block;font-size:16px;color:inherit;margin-bottom:2px}
+.empty b{color:var(--ink)}.pn.dk .empty b{color:#fff}
+/* years */
+.years{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,280px),1fr));gap:12px}
+.yc{background:var(--sunk);border-radius:26px;padding:18px;position:relative;overflow:hidden}
+.yc::after{content:"";position:absolute;right:-18px;top:-18px;width:80px;height:80px;border-radius:var(--r,50%);background:var(--c);transform:rotate(16deg)}
+.yc .y{position:relative;z-index:1;font:900 40px/1 Unbounded,sans-serif}
+.yc .n{position:relative;z-index:1;font-weight:700;color:var(--soft);margin-top:4px}
+.yc dl{margin:12px 0 14px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:6px 12px;font-size:14px}
+.yc dt{color:var(--soft);font-weight:600}.yc dd{margin:0;font-weight:700}
+.yc .ghost{background:var(--card)}
+.note{font-size:14px;color:var(--soft)}
+.note code{background:var(--card);border-radius:6px;padding:2px 6px;font-size:13px;color:var(--ink)}
+.pn textarea{background:var(--card)}
+#toast{position:fixed;left:50%;bottom:88px;transform:translate(-50%,40px);opacity:0;pointer-events:none;background:var(--dark);color:#fff;border-radius:14px;padding:8px 8px 8px 16px;display:flex;gap:14px;align-items:center;box-shadow:0 10px 30px #0004;transition:transform .25s,opacity .25s;max-width:calc(100vw - 24px);z-index:9;font-weight:600;font-size:15px}
+#toast.on{transform:translate(-50%,0);opacity:1;pointer-events:auto}
+#toast button{border:0;background:var(--pink);color:#fff;border-radius:10px;min-height:40px;padding:6px 14px;font-weight:800}
+@media(prefers-reduced-motion:reduce){#toast,.add{transition:none}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <span class="st s1"></span><span class="st s2"></span><span class="st s3"></span><span class="st s4"></span><span class="st s5"></span>
+  <div class="wrap in">
+    <p class="kick">Best of</p>
+    <div class="yrow"><button class="yb" id="yPrev" aria-label="Previous year"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M15 5l-7 7 7 7"/></svg></button><span class="yr" id="yLab">2026</span><button class="yb" id="yNext" aria-label="Next year"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M9 5l7 7-7 7"/></svg></button></div>
+    <div class="pills"><span class="pill w" id="pM">0 matches</span><span class="pill" id="pS">0 segments</span><span class="pill sync" id="sync">Loading…</span></div>
+  </div>
+</header>
+<nav id="nav" aria-label="Sections"><a href="#log">Log it</a><a href="#list">List</a><a href="#stats">Stats</a><a href="#years">Years</a></nav>
+<main class="wrap">
+
+<section id="v-log">
+  <div class="split">
+    <form class="sheet lift" id="form" autocomplete="off">
+      <div class="tt" role="group" aria-label="Type"><button type="button" data-type="match" aria-pressed="true">Match</button><button type="button" data-type="segment" aria-pressed="false">Segment</button></div>
+      <label for="who" id="whoLab">Who's in it</label>
+      <input id="who" class="who" placeholder="Will Ospreay vs. Konosuke Takeshita">
+      <div class="sugg" id="sugg"></div>
+      <div class="counts" id="counts"></div>
+      <label for="promoSel">Promotion</label>
+      <div class="psel" id="psel"><select id="promoSel"></select></div>
+      <input id="promo" placeholder="Type the promotion" list="dlP" style="margin-top:8px" aria-label="Other promotion" hidden>
+      <div class="row2">
+        <div><label for="show">Show</label><input id="show" placeholder="Dynamite, Wrestle Kingdom…" list="dlS"></div>
+        <div><label for="date">Date</label><input id="date" type="date"></div>
+      </div>
+      <div class="row2">
+        <div><label for="stip">Stipulation or title (optional)</label><input id="stip" placeholder="IWGP World Title, Ladder…"></div>
+        <div><label for="notes">Notes (optional)</label><input id="notes" placeholder="Why it rules"></div>
+      </div>
+      <div class="go">
+        <button type="button" class="heart" id="hot" aria-pressed="false" aria-label="Of-the-year contender"><svg viewBox="0 0 24 24"><path d="M12 20.5s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.6a4.3 4.3 0 0 1 7.5 2.7c0 5.6-7.5 10.2-7.5 10.2z"/></svg></button>
+        <button class="add" id="go" type="submit">Add to 2026</button>
+      </div>
+      <p class="hint" id="hint">Tap the heart to shortlist it for <b>Match of the Year</b>.</p>
+      <div class="tools" id="editTools" hidden><button type="button" class="ghost" id="cancelEdit">Cancel edit</button></div>
+    </form>
+    <div>
+      <h2 id="sideTitle">Just added</h2>
+      <div class="list" id="side"></div>
+    </div>
+  </div>
+</section>
+
+<section id="v-list" class="view-top" hidden>
+  <p class="big" id="listTitle">The 2026 list</p>
+  <div class="filters">
+    <input id="q" type="search" placeholder="Search wrestlers, shows, notes" aria-label="Search">
+    <select id="fType" aria-label="Type"><option value="all">Matches + segments</option><option value="match">Matches</option><option value="segment">Segments</option><option value="hot">Contenders</option></select>
+    <select id="fPromo" aria-label="Promotion"></select>
+    <select id="fSort" aria-label="Sort"><option value="date">Newest first</option><option value="old">Oldest first</option><option value="hot">Contenders first</option></select>
+  </div>
+  <div class="list" id="list"></div>
+</section>
+
+<section id="v-stats" class="view-top" hidden>
+  <div class="hd" style="margin-bottom:18px"><p class="big" id="statsTitle" style="margin:0">2026 in numbers</p><button class="primary" id="copyStats" type="button">Copy as text</button></div>
+  <div class="kpis" id="kpis"></div>
+  <div class="grid">
+    <div class="pn"><div class="hd"><h2>Wrestler of the Year</h2><select id="wSort" aria-label="Rank wrestlers by"><option value="count">Most entries</option><option value="hot">Most contenders</option></select></div><div id="podium"></div><ol class="rows" id="wRows"></ol></div>
+    <div class="pn dk"><h2>Match of the Year shortlist</h2><ol class="rows" id="mRows"></ol></div>
+    <div class="pn"><h2>Promotion of the Year</h2><div class="chips" id="pChips"></div></div>
+    <div class="pn"><h2>Show of the Year</h2><ol class="rows" id="sRows"></ol></div>
+    <div class="pn dk"><h2>Segment of the Year shortlist</h2><ol class="rows" id="gRows"></ol></div>
+    <div class="pn"><h2>Month by month</h2><div class="months" id="months"></div></div>
+  </div>
+</section>
+
+<section id="v-years" class="view-top" hidden>
+  <p class="big">Every year</p>
+  <div class="years" id="yearCards"></div>
+  <div class="grid" style="margin-top:14px">
+    <div class="pn"><h2>All-time leaders</h2><ol class="rows" id="atRows"></ol></div>
+    <div class="pn">
+      <h2>Bring in past years</h2>
+      <p class="note">Paste one entry per line, with columns split by tabs (straight from a spreadsheet) or <code>|</code>:<br><code>date | promotion | show | who | type | notes</code><br>Type and notes are optional; put "segment" for segments. A JSON backup from this app works too.</p>
+      <textarea id="imp" rows="6" placeholder="2025-01-04 | NJPW | Wrestle Kingdom 19 | Zack Sabre Jr. vs. Shota Umino"></textarea>
+      <div class="tools"><button class="primary" id="doImp" type="button">Import</button><button class="ghost" id="doExp" type="button" style="background:var(--card)">Copy backup (JSON)</button></div>
+      <p class="note" id="impMsg"></p>
+    </div>
+  </div>
+</section>
+</main>
+<datalist id="dlP"></datalist><datalist id="dlS"></datalist>
+<div id="toast" role="status"><span id="tMsg"></span><button id="tBtn" type="button">Undo</button></div>
+<script>
+{
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const pad=n=>String(n).padStart(2,'0');
+const today=()=>{const d=new Date();return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate())};
+const NOW_Y=new Date().getFullYear();
+const LS={get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+const TOP=['AEW','WWE','NJPW','AAA'];
+const DEF=['TNA','ROH','Stardom','CMLL','GCW','NOAH','DDT','Dragon Gate','MLW','NXT'];
+const PC={aew:'#c09000',njpw:'#e0262e',tna:'#2348e0',wwe:'#3a3546',roh:'#9b1d2a',stardom:'#e2408c',gcw:'#0d9a5f',cmll:'#f07800',nxt:'#7a7488',dragongate:'#d14300',noah:'#0b8ea0',ajpw:'#b3121a',mlw:'#5a3fd6',aaa:'#0f8a3c',ddt:'#ff5a1f'};
+const PAL=['#ff3d8b','#2348e0','#18a884','#ff8a00','#d1197c','#0b8ea0','#a07400','#5a3fd6'];
+const STK=['#ff3d8b','#ff8a00','#2348e0','#18c29c','#e0a800'];
+const pc=p=>{const k=String(p||'').toLowerCase().replace(/\s+/g,'');if(!k)return '#8a849a';if(PC[k])return PC[k];let h=0;for(const c of k)h=(h*31+c.charCodeAt(0))|0;return PAL[Math.abs(h)%PAL.length]};
+const MON=['J','F','M','A','M','J','J','A','S','O','N','D'];
+const HEART='<svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.6a4.3 4.3 0 0 1 7.5 2.7c0 5.6-7.5 10.2-7.5 10.2z"/></svg>';
+const IC={edit:'<svg viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16v4z"/><path d="M13.5 6.5l4 4"/></svg>',del:'<svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>'};
+
+let entries=new Map(Object.entries(LS.get('wl.cache',{})));
+let pend=new Set(LS.get('wl.pend',[])),pdel=new Set(LS.get('wl.pdel',[]));
+let col=null,flushing=false,timer=0;
+const st={year:NOW_Y,type:'match',promo:'',hot:false,editId:null};
+const last=LS.get('wl.last',{promo:'',show:''});
+
+const splitNames=s=>String(s||'').replace(/\((?:c|champ|champs)\)/gi,'').split(/\s+(?:vs\.?|v\.?|versus)\s+|\s*(?:,|&|\/|\+|\bw\/|\band\b)\s*/i).map(x=>x.trim()).filter(x=>x.length>1);
+const newId=()=>'e'+Date.now().toString(36)+Math.random().toString(36).slice(2,7);
+const all=()=>[...entries.values()];
+const yearOf=e=>+(String(e.date||'').slice(0,4))||0;
+const inYear=y=>all().filter(e=>yearOf(e)===y);
+const isSeg=e=>e.type==='segment';
+const fmt=d=>{if(!d)return '';const t=new Date(d+'T12:00');return isNaN(t)?d:t.toLocaleDateString('en-US',{month:'short',day:'numeric'})};
+const plural=(n,w,p)=>n+' '+(n===1?w:(p||w+'s'));
+
+/* ---------- storage ---------- */
+function cache(){LS.set('wl.cache',Object.fromEntries(entries));LS.set('wl.pend',[...pend]);LS.set('wl.pdel',[...pdel])}
+function sync(s){const m={ok:['Synced','#7dffcf'],local:['Saved on this device','#ffffff'],slow:['Connecting…','#ffd23f'],err:['Sync hiccup — kept on this device','#ffd23f']}[s]||[s,'#ffd23f'];const el=$('#sync');el.textContent=m[0];el.style.setProperty('--c',m[1])}
+async function put(e){entries.set(e.id,e);pdel.delete(e.id);if(col){try{await col.doc(e.id).set(e);pend.delete(e.id)}catch(x){pend.add(e.id);sync('err')}}else pend.add(e.id);cache();render()}
+async function del(id){entries.delete(id);pend.delete(id);if(col){try{await col.doc(id).delete();pdel.delete(id)}catch(x){pdel.add(id)}}else pdel.add(id);cache();render()}
+async function flush(){if(flushing||!col)return;flushing=true;for(const id of [...pend]){const e=entries.get(id);if(!e){pend.delete(id);continue}try{await col.doc(id).set(e);pend.delete(id)}catch(x){break}}for(const id of [...pdel]){try{await col.doc(id).delete();pdel.delete(id)}catch(x){break}}cache();flushing=false}
+function onSnap(snap){const m=new Map();snap.docs.forEach(d=>{if(d.exists)m.set(d.id,d.data())});pend.forEach(id=>{if(entries.has(id))m.set(id,entries.get(id))});pdel.forEach(id=>m.delete(id));entries=m;cache();render();if(!snap.metadata.fromCache){clearTimeout(timer);sync('ok');flush()}}
+(async()=>{try{if(!window.claude||!window.claude.use){sync('local');return}
+const [db,user]=await Promise.all([window.claude.use('db'),window.claude.use('user')]);
+if(!db){sync('local');return}
+if(user&&user.isOwner){const o=await user.isOwner();if(o===false){sync('local');return}}
+col=db.collection('entries');sync('slow');timer=setTimeout(()=>sync('Still connecting…'),10000);
+col.onSnapshot(onSnap,()=>{clearTimeout(timer);col=null;sync('local')});
+}catch(x){col=null;sync('local')}})();
+
+/* ---------- toast ---------- */
+let tt=0,tFn=null;
+function toast(msg,fn){$('#tMsg').textContent=msg;tFn=fn||null;$('#tBtn').hidden=!fn;$('#toast').classList.add('on');clearTimeout(tt);tt=setTimeout(()=>$('#toast').classList.remove('on'),6000)}
+$('#tBtn').onclick=()=>{const f=tFn;tFn=null;$('#toast').classList.remove('on');if(f)f()};
+
+/* ---------- form ---------- */
+function setType(t){st.type=t;$$('[data-type]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.type===t));$('#whoLab').textContent=t==='match'?"Who's in it":'Who was involved';$('#who').placeholder=t==='match'?'Will Ospreay vs. Konosuke Takeshita':'MJF, Adam Cole — the contract signing';updHint()}
+function updHint(){$('#hint').innerHTML=st.hot?`Shortlisted for <b>${st.type==='match'?'Match':'Segment'} of the Year</b>.`:`Tap the heart to shortlist it for <b>${st.type==='match'?'Match':'Segment'} of the Year</b>.`}
+function setHot(v){st.hot=v;$('#hot').setAttribute('aria-pressed',v);updHint()}
+function setPromo(p,typing){st.promo=p;const sel=$('#promoSel');const opt=[...sel.options].find(o=>o.value&&o.value!=='__other'&&o.value.toLowerCase()===p.toLowerCase());
+if(!typing){if(opt){sel.value=opt.value;$('#promo').hidden=true}else if(p){sel.value='__other';$('#promo').hidden=false;$('#promo').value=p}else{sel.value='';$('#promo').hidden=true}}
+$('#psel').style.setProperty('--c',p?pc(p):'transparent')}
+$$('[data-type]').forEach(b=>b.onclick=()=>setType(b.dataset.type));
+$('#hot').onclick=()=>setHot(!st.hot);
+$('#promo').oninput=e=>setPromo(e.target.value.trim(),true);
+$('#promoSel').onchange=e=>{const v=e.target.value;if(v==='__other'){$('#promo').hidden=false;$('#promo').value='';st.promo='';$('#psel').style.setProperty('--c','transparent');$('#promo').focus()}else setPromo(v)};
+$('#show').oninput=()=>renderSide();$('#date').onchange=()=>{updGo();renderSide()};
+
+let names=[],sugg=[];
+function allNames(){const m=new Map();all().forEach(e=>(e.wrestlers||splitNames(e.who)).forEach(n=>{const k=n.toLowerCase();const o=m.get(k)||{n,c:0};o.c++;m.set(k,o)}));return [...m.values()].sort((a,b)=>b.c-a.c).map(o=>o.n)}
+function onWho(){const v=$('#who').value;const m=v.match(/^(.*(?:\s+(?:vs\.?|v\.?)\s+|\s*(?:,|&|\/)\s*))?(.*)$/i)||[];const pre=m[1]||'',tok=(m[2]||'').trim().toLowerCase();
+sugg=tok.length>=2?names.filter(n=>n.toLowerCase().includes(tok)&&n.toLowerCase()!==tok).slice(0,6).map(n=>({pre,n})):[];
+$('#sugg').innerHTML=sugg.map((s,i)=>`<button type="button" data-s="${i}">${esc(s.n)}</button>`).join('');
+const p=splitNames(v);$('#counts').innerHTML=p.length?'Counts for '+p.map(n=>`<span>${esc(n)}</span>`).join(''):''}
+$('#who').oninput=onWho;
+$('#sugg').onclick=e=>{const b=e.target.closest('[data-s]');if(!b)return;const s=sugg[+b.dataset.s];$('#who').value=s.pre+s.n+' ';$('#who').focus();onWho()};
+function updGo(){const y=(($('#date').value||today()).slice(0,4));$('#go').textContent=st.editId?'Save changes':'Add to '+y}
+function resetForm(keep){$('#who').value='';$('#stip').value='';$('#notes').value='';setHot(false);st.editId=null;$('#editTools').hidden=true;if(!keep){setPromo(last.promo||'');$('#show').value=last.show||'';$('#date').value=today()}onWho();updGo()}
+$('#form').onsubmit=async e=>{e.preventDefault();const who=$('#who').value.trim();if(!who){$('#who').focus();toast('Add who was in it first');return}
+const date=$('#date').value||today();const old=st.editId?entries.get(st.editId):null;
+const ent={id:old?old.id:newId(),type:st.type,who,wrestlers:splitNames(who),promo:st.promo.trim(),show:$('#show').value.trim(),date,contender:st.hot,stip:$('#stip').value.trim(),notes:$('#notes').value.trim(),created:old?old.created:Date.now()};
+last.promo=ent.promo;last.show=ent.show;LS.set('wl.last',last);
+const wasEdit=!!old;resetForm(true);await put(ent);
+if(wasEdit){toast('Changes saved',()=>put({...old}));location.hash='#list'}else toast('Added to Best of '+date.slice(0,4),()=>del(ent.id));$('#who').focus()};
+function edit(id){const e=entries.get(id);if(!e)return;st.editId=id;setType(e.type||'match');$('#who').value=e.who||'';setPromo(e.promo||'');$('#show').value=e.show||'';$('#date').value=e.date||today();setHot(!!e.contender);$('#stip').value=e.stip||'';$('#notes').value=e.notes||'';$('#editTools').hidden=false;onWho();updGo();location.hash='#log';window.scrollTo(0,0)}
+$('#cancelEdit').onclick=()=>resetForm(false);
+document.addEventListener('click',e=>{const ed=e.target.closest('[data-edit]');if(ed){edit(ed.dataset.edit);return}const dl=e.target.closest('[data-del]');if(dl){const old=entries.get(dl.dataset.del);if(old){del(old.id);toast('Deleted “'+old.who.slice(0,32)+'”',()=>put({...old}))}}});
+
+/* ---------- cards ---------- */
+function card(e){const c=pc(e.promo);return `<article class="ent" style="--c:${c}"><div><h3>${esc(e.who)}</h3><p class="meta">${e.promo?`<span class="tag p">${esc(e.promo)}</span>`:''}<span>${esc([e.show,fmt(e.date)].filter(Boolean).join(' · '))}</span>${isSeg(e)?'<span class="tag">Segment</span>':''}${e.contender?`<span class="tag h">${HEART}Contender</span>`:''}</p>${e.stip?`<p class="meta">${esc(e.stip)}</p>`:''}${e.notes?`<p class="nt">${esc(e.notes)}</p>`:''}</div><div class="act"><button type="button" class="ib" data-edit="${e.id}" aria-label="Edit">${IC.edit}</button><button type="button" class="ib" data-del="${e.id}" aria-label="Delete">${IC.del}</button></div></article>`}
+const empty=(t,s)=>`<div class="empty"><b>${t}</b>${s}</div>`;
+
+/* ---------- render ---------- */
+function years(){const s=new Set(all().map(yearOf).filter(Boolean));s.add(NOW_Y);return [...s].sort((a,b)=>b-a)}
+function renderHead(){const ys=years(),l=inYear(st.year),m=l.filter(e=>!isSeg(e)).length;$('#yLab').textContent=st.year;$('#yPrev').disabled=st.year<=ys[ys.length-1];$('#yNext').disabled=st.year>=ys[0];
+$('#pM').textContent=plural(m,'match','matches');$('#pS').textContent=plural(l.length-m,'segment');$('#listTitle').textContent='The '+st.year+' list';$('#statsTitle').textContent=st.year+' in numbers'}
+$('#yPrev').onclick=()=>{const ys=years().filter(y=>y<st.year);if(ys.length){st.year=ys[0];render()}};
+$('#yNext').onclick=()=>{const ys=years().filter(y=>y>st.year);if(ys.length){st.year=ys[ys.length-1];render()}};
+function promos(){const c=new Map();all().forEach(e=>{if(e.promo){const k=e.promo.toLowerCase();const o=c.get(k)||{p:e.promo,n:0};o.n++;c.set(k,o)}});DEF.forEach((p,i)=>{const k=p.toLowerCase();if(!c.has(k))c.set(k,{p,n:-1-i/100})});const top=TOP.map(t=>t.toLowerCase());return TOP.concat([...c.entries()].filter(([k])=>!top.includes(k)).map(([,o])=>o).sort((a,b)=>b.n-a.n).map(o=>o.p))}
+function renderLog(){const ps=promos();$('#promoSel').innerHTML='<option value="">Choose a promotion</option>'+ps.map(p=>`<option value="${esc(p)}">${esc(p)}</option>`).join('')+'<option value="__other">Other…</option>';if(!$('#promo').hidden&&document.activeElement===$('#promo')){$('#promoSel').value='__other'}else setPromo(st.promo);
+$('#dlP').innerHTML=ps.map(p=>`<option value="${esc(p)}">`).join('');
+const sh=[...new Set(all().sort((a,b)=>(b.created||0)-(a.created||0)).map(e=>e.show).filter(Boolean))];$('#dlS').innerHTML=sh.slice(0,80).map(s=>`<option value="${esc(s)}">`).join('');
+names=allNames();renderSide()}
+function renderSide(){const show=$('#show').value.trim().toLowerCase(),date=$('#date').value;let l=show?all().filter(e=>(e.show||'').toLowerCase()===show&&(!date||e.date===date)):[];
+if(l.length){$('#sideTitle').textContent='On this show';l.sort((a,b)=>(b.created||0)-(a.created||0))}else{$('#sideTitle').textContent='Just added';l=all().sort((a,b)=>(b.created||0)-(a.created||0)).slice(0,6)}
+$('#side').innerHTML=l.length?l.map(card).join(''):empty('Nothing here yet','Log your first great match and it lands here.')}
+function renderList(){const fp=$('#fPromo'),cur=fp.value||'all';const ps=[...new Set(inYear(st.year).map(e=>e.promo).filter(Boolean))].sort();fp.innerHTML='<option value="all">All promotions</option>'+ps.map(p=>`<option${p===cur?' selected':''}>${esc(p)}</option>`).join('');if(cur!=='all'&&!ps.includes(cur))fp.value='all';
+const q=$('#q').value.trim().toLowerCase(),ft=$('#fType').value,pv=fp.value,so=$('#fSort').value;const yl=inYear(st.year);
+let l=yl.filter(e=>(ft==='all'||(ft==='hot'?e.contender:(e.type||'match')===ft))&&(pv==='all'||e.promo===pv)&&(!q||[e.who,e.show,e.promo,e.notes,e.stip].join(' ').toLowerCase().includes(q)));
+const byNew=(a,b)=>(b.date||'').localeCompare(a.date||'')||((b.created||0)-(a.created||0));
+l.sort(so==='old'?(a,b)=>-byNew(a,b):so==='hot'?(a,b)=>(b.contender?1:0)-(a.contender?1:0)||byNew(a,b):byNew);
+$('#list').innerHTML=l.length?l.map(card).join(''):(yl.length?empty('Nothing matches that','Try a different search or filter.'):empty('Nothing from '+st.year+' yet','Head to “Log it” to start the list.'))}
+['#q','#fType','#fPromo','#fSort'].forEach(s=>$(s).addEventListener('input',renderList));
+
+function crunch(l){const W=new Map(),P=new Map(),S=new Map(),M=Array(12).fill(0);
+l.forEach(e=>{(e.wrestlers||splitNames(e.who)).forEach(n=>{const k=n.toLowerCase();const o=W.get(k)||{name:n,n:0,m:0,s:0,h:0,ys:new Set()};o.n++;isSeg(e)?o.s++:o.m++;if(e.contender)o.h++;o.ys.add(yearOf(e));W.set(k,o)});
+const pk=e.promo||'Unlisted';const p=P.get(pk.toLowerCase())||{name:pk,n:0,h:0};p.n++;if(e.contender)p.h++;P.set(pk.toLowerCase(),p);
+if(e.show){const sk=(e.show+'|'+(e.promo||'')).toLowerCase();const s=S.get(sk)||{name:e.show,promo:e.promo,date:e.date,n:0,h:0};s.n++;if(e.contender)s.h++;S.set(sk,s)}
+const mo=+String(e.date||'').slice(5,7);if(mo)M[mo-1]++});
+return {W:[...W.values()],P:[...P.values()].sort((a,b)=>b.n-a.n||b.h-a.h),S:[...S.values()].sort((a,b)=>b.n-a.n||b.h-a.h),M}}
+const row=(i,name,sub,val)=>`<li><span class="rk">${i}</span><div class="rn"><b>${name}</b><small>${sub}</small></div><span class="rv">${val}</span></li>`;
+const wRank=(W,mode)=>mode==='hot'?W.filter(o=>o.h).sort((a,b)=>b.h-a.h||b.n-a.n):W.slice().sort((a,b)=>b.n-a.n||b.h-a.h);
+const wSub=(o,mode)=>[o.m?plural(o.m,'match','matches'):'',o.s?plural(o.s,'segment'):'',mode!=='hot'&&o.h?plural(o.h,'contender'):''].filter(Boolean).join(' · ');
+const hotSub=h=>h?` · ${plural(h,'contender')}`:'';
+const shortlist=arr=>arr.filter(e=>e.contender).sort((a,b)=>(a.date||'').localeCompare(b.date||''));
+const shortRow=(e,i)=>row(i+1,esc(e.who),esc([e.promo,e.show,fmt(e.date)].filter(Boolean).join(' · ')),`<span style="color:var(--pink)">${HEART.replace('width="12" height="12"','width="18" height="18"')}</span>`);
+function renderStats(){const l=inYear(st.year),c=crunch(l),m=l.filter(e=>!isSeg(e)),g=l.filter(isSeg);
+$('#kpis').innerHTML=[[l.length,'entries','#ff3d8b'],[m.length,'matches','#ff8a00'],[g.length,'segments','#2348e0'],[l.filter(e=>e.contender).length,'contenders','#ffd23f','#17131f'],[c.W.length,'wrestlers','#18c29c','#17131f'],[c.P.filter(p=>p.name!=='Unlisted').length,'promotions','#17131f']].map(([v,t,bg,fg])=>`<div class="kpi" style="--c:${bg};${fg?'--fg:'+fg:''}"><b>${v}</b><span>${t}</span></div>`).join('');
+const none=empty('No data yet','Log some matches from '+st.year+'.');
+const mode=$('#wSort').value,W=wRank(c.W,mode).slice(0,15),val=o=>mode==='hot'?o.h:o.n;
+if(W.length>=3){const top=val(W[0]),h=o=>Math.round(44+val(o)/top*70);const pod=[[W[1],'#2348e0',2],[W[0],'#ff3d8b',1],[W[2],'#ff8a00',3]];
+$('#podium').innerHTML=`<div class="podium">${pod.map(([o,col])=>`<div class="pod"><span>${esc(o.name)}</span><div style="height:${h(o)}px;background:${col}">${val(o)}</div></div>`).join('')}</div>`;
+$('#wRows').innerHTML=W.slice(3).map((o,i)=>row(i+4,esc(o.name),wSub(o,mode),val(o))).join('')}
+else{$('#podium').innerHTML='';$('#wRows').innerHTML=W.length?W.map((o,i)=>row(i+1,esc(o.name),wSub(o,mode),val(o))).join(''):(mode==='hot'&&c.W.length?empty('No contenders yet','Heart a match when you log it to shortlist it.'):none)}
+const sm=shortlist(m);$('#mRows').innerHTML=sm.length?sm.map(shortRow).join(''):(m.length?empty('No shortlist yet','Heart matches as you log them and they line up here.'):empty('No matches yet','Log some from '+st.year+'.'));
+const sg=shortlist(g);$('#gRows').innerHTML=sg.length?sg.map(shortRow).join(''):(g.length?empty('No shortlist yet','Heart segments as you log them and they line up here.'):empty('No segments yet','Flip to “Segment” when logging.'));
+const P=c.P;$('#pChips').innerHTML=P.length?P.map(o=>`<span class="chip" style="--c:${pc(o.name==='Unlisted'?'':o.name)};font-size:${Math.round(13+o.n/P[0].n*9)}px">${esc(o.name)} · ${o.n}</span>`).join('')+`<p class="note" style="width:100%;margin:6px 0 0">${esc(P[0].name)} leads with ${Math.round(P[0].n/l.length*100)}% of the list.</p>`:none;
+const S=c.S.slice(0,10);$('#sRows').innerHTML=S.length?S.map((o,i)=>row(i+1,esc(o.name),esc([o.promo,fmt(o.date)].filter(Boolean).join(' · '))+hotSub(o.h),o.n)).join(''):none;
+const mx=Math.max(1,...c.M);$('#months').innerHTML=c.M.map((v,i)=>`<div class="mo"><em>${v||''}</em><i style="height:${v/mx*100}%;${v?'--c:'+STK[i%STK.length]:''}"></i><span>${MON[i]}</span></div>`).join('')}
+$('#wSort').oninput=renderStats;
+$('#copyStats').onclick=async()=>{const l=inYear(st.year),c=crunch(l);const L=[`BEST OF ${st.year} — ${plural(l.length,'entry','entries')}`,'','WRESTLER OF THE YEAR'];
+wRank(c.W,'count').slice(0,10).forEach((o,i)=>L.push(`${i+1}. ${o.name} — ${o.n}${o.h?` (${plural(o.h,'contender')})`:''}`));
+const sl=(t,arr)=>{L.push('',t);const s=shortlist(arr);if(!s.length)L.push('—');s.forEach(e=>L.push(`• ${e.who} (${[e.promo,e.show].filter(Boolean).join(' ')})`))};
+sl('MATCH OF THE YEAR SHORTLIST',l.filter(e=>!isSeg(e)));sl('SEGMENT OF THE YEAR SHORTLIST',l.filter(isSeg));
+L.push('','PROMOTION OF THE YEAR');c.P.forEach((o,i)=>L.push(`${i+1}. ${o.name} — ${o.n}`));
+L.push('','SHOW OF THE YEAR');c.S.slice(0,5).forEach((o,i)=>L.push(`${i+1}. ${o.name}${o.promo?' ('+o.promo+')':''} — ${o.n}`));
+try{await navigator.clipboard.writeText(L.join('\n'));toast('Stats copied — paste anywhere')}catch(x){toast('Couldn’t reach the clipboard here')}};
+
+function renderYears(){const ys=years();$('#yearCards').innerHTML=ys.map((y,i)=>{const l=inYear(y),c=crunch(l);const w=wRank(c.W,'count')[0],p=c.P[0],s=c.S[0];
+return `<div class="yc" style="--c:${STK[i%STK.length]};--r:${i%2?'18px':'50%'}"><div class="y">${y}</div><div class="n">${plural(l.length,'entry','entries')}</div><dl><dt>Wrestler</dt><dd>${w?esc(w.name)+' · '+w.n:'—'}</dd><dt>Promotion</dt><dd>${p?esc(p.name):'—'}</dd><dt>Show</dt><dd>${s?esc(s.name):'—'}</dd><dt>Contenders</dt><dd>${l.filter(e=>e.contender).length}</dd></dl><button class="ghost" type="button" data-year="${y}">Open ${y} stats</button></div>`}).join('');
+const c=crunch(all()),W=wRank(c.W,'count').slice(0,10);$('#atRows').innerHTML=W.length?W.map((o,i)=>row(i+1,esc(o.name),`${plural(o.ys.size,'year')}${hotSub(o.h)}`,o.n)).join(''):empty('No history yet','Your years build up here.')}
+$('#yearCards').onclick=e=>{const b=e.target.closest('[data-year]');if(b){st.year=+b.dataset.year;location.hash='#stats';render();window.scrollTo(0,0)}};
+
+/* ---------- import / export ---------- */
+function pDate(s){s=String(s||'').trim();let m=s.match(/^(\d{4})-(\d{1,2})-(\d{1,2})/);if(m)return m[1]+'-'+pad(m[2])+'-'+pad(m[3]);m=s.match(/^(\d{1,2})\/(\d{1,2})\/(\d{2,4})$/);if(m){const y=m[3].length===2?'20'+m[3]:m[3];return y+'-'+pad(m[1])+'-'+pad(m[2])}const t=new Date(s);return isNaN(t)?'':t.getFullYear()+'-'+pad(t.getMonth()+1)+'-'+pad(t.getDate())}
+function norm(o,i){const who=String(o.who||o.match||'').trim();return {id:o.id&&/^[\w-]+$/.test(o.id)?o.id:newId()+i,type:/seg|promo|angle/i.test(o.type||'')?'segment':'match',who,wrestlers:Array.isArray(o.wrestlers)&&o.wrestlers.length?o.wrestlers.map(String):splitNames(who),promo:String(o.promo||o.promotion||'').trim(),show:String(o.show||'').trim(),date:pDate(o.date),contender:!!o.contender,stip:String(o.stip||'').trim(),notes:String(o.notes||'').trim(),created:+o.created||Date.now()+i}}
+function parseImp(t){t=t.trim();if(!t)return [];if(/^[\[{]/.test(t)){let j=JSON.parse(t);if(!Array.isArray(j))j=j.entries||Object.values(j);return j.map(norm)}
+return t.split(/\r?\n/).map(l=>l.split(l.includes('\t')?'\t':'|').map(x=>x.trim())).filter(c=>c.length>=4&&!/^date$/i.test(c[0])).map((c,i)=>{const typ=/^(seg|segment|promo|angle|match)$/i.test(c[4]||'');return norm({date:c[0],promo:c[1],show:c[2],who:c[3],type:typ?c[4]:'',notes:(typ?c.slice(5):c.slice(4)).filter(Boolean).join(' · ')},i)})}
+$('#doImp').onclick=async()=>{let l;try{l=parseImp($('#imp').value).filter(e=>e.who&&e.date)}catch(x){$('#impMsg').textContent='That doesn’t look like valid JSON.';return}
+if(!l.length){$('#impMsg').textContent='No usable lines found — each needs at least a date, promotion, show and who.';return}
+$('#impMsg').textContent='Importing '+l.length+'…';for(const e of l){entries.set(e.id,e);pend.add(e.id)}cache();render();await flush();
+$('#impMsg').textContent='Imported '+plural(l.length,'entry','entries')+'.';$('#imp').value=''};
+$('#doExp').onclick=async()=>{try{await navigator.clipboard.writeText(JSON.stringify(all(),null,1));toast('Backup copied ('+plural(entries.size,'entry','entries')+')')}catch(x){$('#imp').value=JSON.stringify(all());$('#impMsg').textContent='Clipboard blocked — the backup is in the box above; select and copy it.'}};
+
+/* ---------- routing ---------- */
+const VIEWS=['log','list','stats','years'];
+function route(){const v=VIEWS.includes(location.hash.slice(1))?location.hash.slice(1):'log';VIEWS.forEach(n=>$('#v-'+n).hidden=n!==v);$$('#nav a').forEach(a=>a.getAttribute('href')==='#'+v?a.setAttribute('aria-current','page'):a.removeAttribute('aria-current'))}
+window.addEventListener('hashchange',route);
+function render(){renderHead();renderLog();renderList();renderStats();renderYears()}
+setType('match');resetForm(false);render();route();
+}
+</script>
+</body>
+</html>
