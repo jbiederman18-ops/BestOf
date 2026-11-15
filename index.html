@@ -2,8 +2,17 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Best of the Year</title>
+<link rel="icon" href="icons/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="icons/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#ff3d8b">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Best Of">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -20,14 +29,14 @@
 :root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
 *{box-sizing:border-box;min-width:0}
 [hidden]{display:none!important}
-body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 Inter,system-ui,sans-serif;overflow-x:clip;-webkit-font-smoothing:antialiased;padding-bottom:110px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 Inter,system-ui,sans-serif;overflow-x:clip;-webkit-font-smoothing:antialiased;padding-bottom:calc(110px + env(safe-area-inset-bottom))}
 button,input,select,textarea{font:inherit;color:inherit}
 button{cursor:pointer}
 :focus-visible{outline:3px solid var(--blue);outline-offset:2px}
 .wrap{max-width:1180px;margin:0 auto}
 .uf{font-family:Unbounded,Inter,sans-serif}
 /* hero */
-.hero{position:relative;overflow:hidden;background:var(--pink);color:#fff;border-radius:0 0 36px 36px;padding:44px max(5vw,20px) 84px}
+.hero{position:relative;overflow:hidden;background:var(--pink);color:#fff;border-radius:0 0 36px 36px;padding:calc(44px + env(safe-area-inset-top)) max(5vw,20px) 84px}
 .st{position:absolute;pointer-events:none}
 .s1{width:150px;height:150px;border-radius:50%;background:var(--orange);right:-30px;top:24px}
 .s2{width:76px;height:76px;border-radius:50%;background:var(--yellow);right:118px;top:128px}
@@ -49,7 +58,7 @@ button{cursor:pointer}
 .pill.sync{display:inline-flex;align-items:center;gap:7px}
 .pill.sync::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--c,#fff)}
 /* nav */
-nav{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:6;background:var(--dark);border-radius:18px;padding:6px;display:flex;gap:2px;box-shadow:0 10px 30px #17131f40;border:1px solid light-dark(transparent,#ffffff22);max-width:calc(100vw - 24px)}
+nav{position:fixed;left:50%;bottom:calc(16px + env(safe-area-inset-bottom));transform:translateX(-50%);z-index:6;background:var(--dark);border-radius:18px;padding:6px;display:flex;gap:2px;box-shadow:0 10px 30px #17131f40;border:1px solid light-dark(transparent,#ffffff22);max-width:calc(100vw - 24px)}
 nav a{padding:12px 18px;border-radius:13px;color:#fff;text-decoration:none;font-weight:650;font-size:15px;white-space:nowrap}
 nav a[aria-current]{background:var(--pink);font-weight:800}
 @media(max-width:400px){nav a{padding:12px 13px}}
@@ -156,7 +165,20 @@ ol.rows li:first-child{border-top:0}
 .note{font-size:14px;color:var(--soft)}
 .note code{background:var(--card);border-radius:6px;padding:2px 6px;font-size:13px;color:var(--ink)}
 .pn textarea{background:var(--card)}
-#toast{position:fixed;left:50%;bottom:88px;transform:translate(-50%,40px);opacity:0;pointer-events:none;background:var(--dark);color:#fff;border-radius:14px;padding:8px 8px 8px 16px;display:flex;gap:14px;align-items:center;box-shadow:0 10px 30px #0004;transition:transform .25s,opacity .25s;max-width:calc(100vw - 24px);z-index:9;font-weight:600;font-size:15px}
+.pn .ghost{background:var(--card)}
+.bk{display:flex;gap:10px;align-items:flex-start;background:var(--card);border-radius:16px;padding:12px 14px;font-size:14px}
+.bk::before{content:"";flex:none;width:10px;height:10px;border-radius:50%;margin-top:6px;background:var(--c,var(--mint))}
+.bk b{display:block;font-size:15px}
+.bk span{color:var(--soft)}
+.rvw{background:var(--card);border-radius:18px;padding:14px 16px;margin-top:12px;border:2px solid var(--blue)}
+.rvw h3{font:800 16px Unbounded,sans-serif;margin-bottom:4px}
+.rvw .chips{margin:10px 0 2px;gap:6px}
+.rvw .chip{font-size:13px}
+.rvw .tools{margin-top:14px}
+.warn{border:0;background:var(--btn);color:var(--btnfg);border-radius:12px;min-height:44px;padding:8px 16px;font-weight:800;font-size:15px}
+.warn.armed{background:#e0262e;color:#fff}
+.linkb{border:0;background:none;padding:0;color:var(--blue);font-weight:700;text-decoration:underline;min-height:0}
+#toast{position:fixed;left:50%;bottom:calc(88px + env(safe-area-inset-bottom));transform:translate(-50%,40px);opacity:0;pointer-events:none;background:var(--dark);color:#fff;border-radius:14px;padding:8px 8px 8px 16px;display:flex;gap:14px;align-items:center;box-shadow:0 10px 30px #0004;transition:transform .25s,opacity .25s;max-width:calc(100vw - 24px);z-index:9;font-weight:600;font-size:15px}
 #toast.on{transform:translate(-50%,0);opacity:1;pointer-events:auto}
 #toast button{border:0;background:var(--pink);color:#fff;border-radius:10px;min-height:40px;padding:6px 14px;font-weight:800}
 @media(prefers-reduced-motion:reduce){#toast,.add{transition:none}}
@@ -236,11 +258,20 @@ ol.rows li:first-child{border-top:0}
   <div class="years" id="yearCards"></div>
   <div class="grid" style="margin-top:14px">
     <div class="pn"><h2>All-time leaders</h2><ol class="rows" id="atRows"></ol></div>
+    <div class="pn" id="bkPanel">
+      <h2>Backup &amp; restore</h2>
+      <div class="bk" id="bkStatus"></div>
+      <div class="tools"><button class="primary" id="bkSave" type="button">Save backup file</button><button class="ghost" id="bkOpen" type="button">Restore from file</button><button class="ghost" id="doExp" type="button">Copy backup</button></div>
+      <input type="file" id="bkFile" accept=".json,application/json,text/plain,.txt,.csv,.tsv" hidden>
+      <div class="rvw" id="bkReview" hidden></div>
+      <p class="note" id="bkUndo" hidden></p>
+    </div>
     <div class="pn">
       <h2>Bring in past years</h2>
-      <p class="note">Paste one entry per line, with columns split by tabs (straight from a spreadsheet) or <code>|</code>:<br><code>date | promotion | show | who | type | notes</code><br>Type and notes are optional; put "segment" for segments. A JSON backup from this app works too.</p>
+      <p class="note">Paste one entry per line, with columns split by tabs (straight from a spreadsheet) or <code>|</code>:<br><code>date | promotion | show | who | type | notes</code><br>Type and notes are optional; put "segment" for segments. Lines already in your list are skipped, so it's safe to paste the same sheet twice.</p>
       <textarea id="imp" rows="6" placeholder="2025-01-04 | NJPW | Wrestle Kingdom 19 | Zack Sabre Jr. vs. Shota Umino"></textarea>
-      <div class="tools"><button class="primary" id="doImp" type="button">Import</button><button class="ghost" id="doExp" type="button" style="background:var(--card)">Copy backup (JSON)</button></div>
+      <div class="tools"><button class="primary" id="doImp" type="button">Check &amp; import</button></div>
+      <div class="rvw" id="impReview" hidden></div>
       <p class="note" id="impMsg"></p>
     </div>
   </div>
@@ -255,7 +286,7 @@ const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&
 const pad=n=>String(n).padStart(2,'0');
 const today=()=>{const d=new Date();return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate())};
 const NOW_Y=new Date().getFullYear();
-const LS={get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+const LS={get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v));return true}catch(e){return false}}};
 const TOP=['AEW','WWE','NJPW','AAA'];
 const DEF=['TNA','ROH','Stardom','CMLL','GCW','NOAH','DDT','Dragon Gate','MLW','NXT'];
 const PC={aew:'#c09000',njpw:'#e0262e',tna:'#2348e0',wwe:'#3a3546',roh:'#9b1d2a',stardom:'#e2408c',gcw:'#0d9a5f',cmll:'#f07800',nxt:'#7a7488',dragongate:'#d14300',noah:'#0b8ea0',ajpw:'#b3121a',mlw:'#5a3fd6',aaa:'#0f8a3c',ddt:'#ff5a1f'};
@@ -282,7 +313,8 @@ const fmt=d=>{if(!d)return '';const t=new Date(d+'T12:00');return isNaN(t)?d:t.t
 const plural=(n,w,p)=>n+' '+(n===1?w:(p||w+'s'));
 
 /* ---------- storage ---------- */
-function cache(){LS.set('wl.cache',Object.fromEntries(entries));LS.set('wl.pend',[...pend]);LS.set('wl.pdel',[...pdel])}
+let warned=false;
+function cache(){const ok=LS.set('wl.cache',Object.fromEntries(entries))&LS.set('wl.pend',[...pend])&LS.set('wl.pdel',[...pdel]);if(!ok&&!col&&!warned){warned=true;setTimeout(()=>toast('This browser couldn’t save — tap Save backup file on Years now'),50)}if(ok)warned=false}
 function sync(s){const m={ok:['Synced','#7dffcf'],local:['Saved on this device','#ffffff'],slow:['Connecting…','#ffd23f'],err:['Sync hiccup — kept on this device','#ffd23f']}[s]||[s,'#ffd23f'];const el=$('#sync');el.textContent=m[0];el.style.setProperty('--c',m[1])}
 async function put(e){entries.set(e.id,e);pdel.delete(e.id);if(col){try{await col.doc(e.id).set(e);pend.delete(e.id)}catch(x){pend.add(e.id);sync('err')}}else pend.add(e.id);cache();render()}
 async function del(id){entries.delete(id);pend.delete(id);if(col){try{await col.doc(id).delete();pdel.delete(id)}catch(x){pdel.add(id)}}else pdel.add(id);cache();render()}
@@ -295,6 +327,7 @@ if(user&&user.isOwner){const o=await user.isOwner();if(o===false){sync('local');
 col=db.collection('entries');sync('slow');timer=setTimeout(()=>sync('Still connecting…'),10000);
 col.onSnapshot(onSnap,()=>{clearTimeout(timer);col=null;sync('local')});
 }catch(x){col=null;sync('local')}})();
+try{navigator.storage&&navigator.storage.persist&&navigator.storage.persist()}catch(x){}
 
 /* ---------- toast ---------- */
 let tt=0,tFn=null;
@@ -326,7 +359,7 @@ function updGo(){const y=(($('#date').value||today()).slice(0,4));$('#go').textC
 function resetForm(keep){$('#who').value='';$('#stip').value='';$('#notes').value='';setHot(false);st.editId=null;$('#editTools').hidden=true;if(!keep){setPromo(last.promo||'');$('#show').value=last.show||'';$('#date').value=today()}onWho();updGo()}
 $('#form').onsubmit=async e=>{e.preventDefault();const who=$('#who').value.trim();if(!who){$('#who').focus();toast('Add who was in it first');return}
 const date=$('#date').value||today();const old=st.editId?entries.get(st.editId):null;
-const ent={id:old?old.id:newId(),type:st.type,who,wrestlers:splitNames(who),promo:st.promo.trim(),show:$('#show').value.trim(),date,contender:st.hot,stip:$('#stip').value.trim(),notes:$('#notes').value.trim(),created:old?old.created:Date.now()};
+const ent={id:old?old.id:newId(),type:st.type,who,wrestlers:splitNames(who),promo:st.promo.trim(),show:$('#show').value.trim(),date,contender:st.hot,stip:$('#stip').value.trim(),notes:$('#notes').value.trim(),created:old?old.created:Date.now(),updated:Date.now()};
 last.promo=ent.promo;last.show=ent.show;LS.set('wl.last',last);
 const wasEdit=!!old;resetForm(true);await put(ent);
 if(wasEdit){toast('Changes saved',()=>put({...old}));location.hash='#list'}else toast('Added to Best of '+date.slice(0,4),()=>del(ent.id));$('#who').focus()};
@@ -399,22 +432,73 @@ return `<div class="yc" style="--c:${STK[i%STK.length]};--r:${i%2?'18px':'50%'}"
 const c=crunch(all()),W=wRank(c.W,'count').slice(0,10);$('#atRows').innerHTML=W.length?W.map((o,i)=>row(i+1,esc(o.name),`${plural(o.ys.size,'year')}${hotSub(o.h)}`,o.n)).join(''):empty('No history yet','Your years build up here.')}
 $('#yearCards').onclick=e=>{const b=e.target.closest('[data-year]');if(b){st.year=+b.dataset.year;location.hash='#stats';render();window.scrollTo(0,0)}};
 
-/* ---------- import / export ---------- */
+/* ---------- backup / restore ---------- */
 function pDate(s){s=String(s||'').trim();let m=s.match(/^(\d{4})-(\d{1,2})-(\d{1,2})/);if(m)return m[1]+'-'+pad(m[2])+'-'+pad(m[3]);m=s.match(/^(\d{1,2})\/(\d{1,2})\/(\d{2,4})$/);if(m){const y=m[3].length===2?'20'+m[3]:m[3];return y+'-'+pad(m[1])+'-'+pad(m[2])}const t=new Date(s);return isNaN(t)?'':t.getFullYear()+'-'+pad(t.getMonth()+1)+'-'+pad(t.getDate())}
-function norm(o,i){const who=String(o.who||o.match||'').trim();return {id:o.id&&/^[\w-]+$/.test(o.id)?o.id:newId()+i,type:/seg|promo|angle/i.test(o.type||'')?'segment':'match',who,wrestlers:Array.isArray(o.wrestlers)&&o.wrestlers.length?o.wrestlers.map(String):splitNames(who),promo:String(o.promo||o.promotion||'').trim(),show:String(o.show||'').trim(),date:pDate(o.date),contender:!!o.contender,stip:String(o.stip||'').trim(),notes:String(o.notes||'').trim(),created:+o.created||Date.now()+i}}
-function parseImp(t){t=t.trim();if(!t)return [];if(/^[\[{]/.test(t)){let j=JSON.parse(t);if(!Array.isArray(j))j=j.entries||Object.values(j);return j.map(norm)}
-return t.split(/\r?\n/).map(l=>l.split(l.includes('\t')?'\t':'|').map(x=>x.trim())).filter(c=>c.length>=4&&!/^date$/i.test(c[0])).map((c,i)=>{const typ=/^(seg|segment|promo|angle|match)$/i.test(c[4]||'');return norm({date:c[0],promo:c[1],show:c[2],who:c[3],type:typ?c[4]:'',notes:(typ?c.slice(5):c.slice(4)).filter(Boolean).join(' · ')},i)})}
-$('#doImp').onclick=async()=>{let l;try{l=parseImp($('#imp').value).filter(e=>e.who&&e.date)}catch(x){$('#impMsg').textContent='That doesn’t look like valid JSON.';return}
-if(!l.length){$('#impMsg').textContent='No usable lines found — each needs at least a date, promotion, show and who.';return}
-$('#impMsg').textContent='Importing '+l.length+'…';for(const e of l){entries.set(e.id,e);pend.add(e.id)}cache();render();await flush();
-$('#impMsg').textContent='Imported '+plural(l.length,'entry','entries')+'.';$('#imp').value=''};
-$('#doExp').onclick=async()=>{try{await navigator.clipboard.writeText(JSON.stringify(all(),null,1));toast('Backup copied ('+plural(entries.size,'entry','entries')+')')}catch(x){$('#imp').value=JSON.stringify(all());$('#impMsg').textContent='Clipboard blocked — the backup is in the box above; select and copy it.'}};
+function norm(o,i){o=o||{};const who=String(o.who||o.match||'').trim();const e={id:o.id&&/^[\w-]+$/.test(o.id)?String(o.id):newId()+i,type:/seg|promo|angle/i.test(o.type||'')?'segment':'match',who,wrestlers:Array.isArray(o.wrestlers)&&o.wrestlers.length?o.wrestlers.map(String):splitNames(who),promo:String(o.promo||o.promotion||'').trim(),show:String(o.show||'').trim(),date:pDate(o.date),contender:!!o.contender,stip:String(o.stip||'').trim(),notes:String(o.notes||'').trim(),created:+o.created||Date.now()+i};if(+o.updated)e.updated=+o.updated;return e}
+/* returns {list, skipped, backup:{exported}|null}; throws on broken JSON */
+function parseImp(t){t=String(t||'').replace(/^﻿/,'').trim();if(!t)return {list:[],skipped:0,backup:null};
+if(/^[\[{]/.test(t)){const j=JSON.parse(t);const arr=Array.isArray(j)?j:Array.isArray(j.entries)?j.entries:Object.values(j.entries||j);const raw=arr.filter(o=>o&&typeof o==='object').map(norm);const list=raw.filter(e=>e.who&&e.date);return {list,skipped:arr.length-list.length,backup:{exported:Array.isArray(j)?null:j.exported||null}}}
+const rows=t.split(/\r?\n/).map(l=>l.trim()).filter(Boolean).map(l=>l.split(l.includes('\t')?'\t':'|').map(x=>x.trim())).filter(c=>!/^date$/i.test(c[0]));
+const list=rows.filter(c=>c.length>=4).map((c,i)=>{const typ=/^(seg|segment|promo|angle|match)$/i.test(c[4]||'');return norm({date:c[0],promo:c[1],show:c[2],who:c[3],type:typ?c[4]:'',notes:(typ?c.slice(5):c.slice(4)).filter(Boolean).join(' · ')},i)}).filter(e=>e.who&&e.date);
+return {list,skipped:rows.length-list.length,backup:null}}
+const ckey=e=>[e.date,e.who,e.show].map(x=>String(x||'').toLowerCase().replace(/[^a-z0-9]+/g,'')).join('|');
+const canon=e=>JSON.stringify(Object.keys(e).sort().reduce((o,k)=>(o[k]=e[k],o),{}));
+const same=(a,b)=>!!a&&!!b&&canon(a)===canon(b);
+const stamp=e=>e.updated||e.created||0;
+/* sort an incoming list against what's here now */
+function plan(p){const keys=new Map(all().map(e=>[ckey(e),e.id]));const seen=new Set();const add=[],upd=[],dupe=[],kept=[];
+p.list.forEach(e=>{const cur=entries.get(e.id);if(cur){if(same(cur,e))dupe.push(e);else if(stamp(cur)>stamp(e))kept.push(e);else upd.push(e);return}
+const k=ckey(e);if(keys.has(k)||seen.has(k)){dupe.push(e);return}seen.add(k);add.push(e)});
+const ids=new Set(p.list.map(e=>e.id));return {...p,add,upd,dupe,kept,gone:all().filter(e=>!ids.has(e.id))}}
+/* write a batch of changes, keeping a snapshot so it can be undone */
+async function applyBatch(puts,dels,label,snap=true){if(snap)LS.set('wl.snap',{at:Date.now(),label,entries:all()});
+puts.forEach(e=>{entries.set(e.id,e);pend.add(e.id);pdel.delete(e.id)});dels.forEach(id=>{entries.delete(id);pend.delete(id);pdel.add(id)});
+cache();render();await flush();render();if(col&&pend.size+pdel.size)sync('err')}
+async function undoRestore(){const s=LS.get('wl.snap',null);if(!s)return;const tgt=new Map(s.entries.map(e=>[e.id,e]));
+await applyBatch(s.entries.filter(e=>!same(entries.get(e.id),e)),[...entries.keys()].filter(id=>!tgt.has(id)),'',false);localStorage.removeItem('wl.snap');renderBackup();toast('Put things back the way they were')}
+const range=l=>{const ys=[...new Set(l.map(yearOf).filter(Boolean))].sort();return ys.length?(ys.length>1?ys[0]+'–'+ys[ys.length-1]:''+ys[0]):''};
+const when=t=>{const d=Math.floor((Date.now()-t)/864e5);return d<1?'today':d<2?'yesterday':d<60?d+' days ago':new Date(t).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})};
+let review=null;
+function showReview(box,p){review={box,p,armed:false};const r=plan(p);review.r=r;box.hidden=false;
+const head=p.backup?(p.backup.exported?'Backup from '+new Date(p.backup.exported).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}):'Backup file'):'Ready to import';
+const ch=[[r.add.length,'new','#18a884'],[r.upd.length,'updated','#2348e0'],[r.dupe.length,'already here','#8a849a'],[r.kept.length,'newer here, kept','#a07400'],[p.skipped,'couldn’t be read','#e0262e']].filter(c=>c[0]);
+const n=r.add.length+r.upd.length;
+box.innerHTML=`<h3>${esc(head)}</h3><p class="note" style="margin:0">${plural(p.list.length,'entry','entries')}${range(p.list)?' · '+range(p.list):''}</p><div class="chips">${ch.map(([v,t,c])=>`<span class="chip" style="--c:${c}">${v} ${t}</span>`).join('')}</div>
+<div class="tools">${n?`<button class="primary" type="button" data-rv="merge">${r.dupe.length+r.kept.length?'Add the '+n+' new & changed':'Add '+plural(n,'entry','entries')}</button>`:''}${p.backup?`<button class="warn" type="button" data-rv="replace">Replace my list with this</button>`:''}<button class="ghost" type="button" data-rv="cancel">Cancel</button></div>
+${!n&&!p.backup?'<p class="note" style="margin:8px 0 0">Nothing new to add — it’s all here already.</p>':''}${p.backup&&!n?'<p class="note" style="margin:8px 0 0">Everything in this backup is already in your list.</p>':''}`}
+document.addEventListener('click',async e=>{const b=e.target.closest('[data-rv]');if(!b||!review)return;const {box,p,r}=review;
+if(b.dataset.rv==='cancel'){box.hidden=true;review=null;return}
+if(b.dataset.rv==='replace'&&!review.armed){review.armed=true;b.classList.add('armed');b.textContent=`Tap again: ${entries.size} → ${p.list.length} entries`+(r.gone.length?` (${r.gone.length} removed)`:'');return}
+box.hidden=true;review=null;
+if(b.dataset.rv==='merge'){const n=r.add.length+r.upd.length;await applyBatch(r.add.concat(r.upd),[],'Imported '+plural(n,'entry','entries'));toast('Imported '+plural(n,'entry','entries'),undoRestore)}
+else{await applyBatch(p.list.filter(e=>!same(entries.get(e.id),e)),r.gone.map(e=>e.id),'Restored a backup');toast('Restored '+plural(p.list.length,'entry','entries'),undoRestore)}
+$('#impMsg').textContent='';});
+$('#doImp').onclick=()=>{let p;try{p=parseImp($('#imp').value)}catch(x){$('#impMsg').textContent='That looks like JSON but it’s broken or cut off — try the backup file instead.';return}
+if(!p.list.length){$('#impReview').hidden=true;$('#impMsg').textContent='No usable lines found — each needs at least a date, promotion, show and who.';return}
+$('#impMsg').textContent='';showReview($('#impReview'),p)};
+$('#bkOpen').onclick=()=>{$('#bkFile').value='';$('#bkFile').click()};
+$('#bkFile').onchange=async()=>{const f=$('#bkFile').files[0];if(!f)return;let p;try{p=parseImp(await f.text())}catch(x){toast('That file isn’t a readable backup');return}
+if(!p.list.length){toast('No entries found in '+f.name);return}if(!p.backup)p.backup=null;showReview($('#bkReview'),p);$('#bkReview').scrollIntoView({block:'nearest',behavior:'smooth'})};
+function backupText(){const l=all().sort((a,b)=>(a.date||'').localeCompare(b.date||'')||(a.created||0)-(b.created||0));return JSON.stringify({app:'BestOf',format:1,exported:new Date().toISOString(),count:l.length,entries:l},null,1)}
+function markBackup(){LS.set('wl.bak',{at:Date.now(),n:entries.size});renderBackup()}
+$('#bkSave').onclick=async()=>{if(!entries.size){toast('Nothing to back up yet');return}const name='best-of-backup-'+today()+'.json';const file=new File([backupText()],name,{type:'application/json'});
+if(matchMedia('(pointer:coarse)').matches&&navigator.canShare&&navigator.canShare({files:[file]})){try{await navigator.share({files:[file],title:'Best Of backup'});markBackup();toast('Backup saved');return}catch(x){if(x.name==='AbortError')return}}
+try{const url=URL.createObjectURL(file),a=document.createElement('a');a.href=url;a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),5000);markBackup();toast('Saved '+name)}catch(x){$('#doExp').click()}};
+$('#doExp').onclick=async()=>{const t=backupText();try{await navigator.clipboard.writeText(t);markBackup();toast('Backup copied ('+plural(entries.size,'entry','entries')+') — paste it somewhere safe')}catch(x){$('#imp').value=t;$('#impMsg').textContent='Clipboard blocked — the backup is in the box above; select and copy it.'}};
+function renderBackup(){const b=LS.get('wl.bak',null),n=entries.size,el=$('#bkStatus');const since=b?all().filter(e=>stamp(e)>b.at).length:n;
+const where=col?'Synced to your Claude account.':'Saved in this browser only — a backup file is your safety net.';
+let head,sub,c;if(!n){head='Nothing to back up yet';sub=where;c='var(--line)'}
+else if(!b){head='No backup saved yet';sub=plural(n,'entry','entries')+' not backed up. '+where;c='var(--orange)'}
+else{const old=Date.now()-b.at>14*864e5;head='Last backup '+when(b.at);sub=(since?plural(since,'entry','entries')+' added or edited since. ':'Nothing new since. ')+where;c=since&&old?'var(--orange)':'var(--mint)'}
+el.style.setProperty('--c',c);el.innerHTML=`<div><b>${head}</b><span>${esc(sub)}</span></div>`;
+const s=LS.get('wl.snap',null),u=$('#bkUndo');u.hidden=!s;if(s)u.innerHTML=`${esc(s.label||'Last import')} ${when(s.at)}. <button type="button" class="linkb" id="undoSnap">Undo it</button>`}
+document.addEventListener('click',e=>{if(e.target.id==='undoSnap')undoRestore()});
 
 /* ---------- routing ---------- */
 const VIEWS=['log','list','stats','years'];
 function route(){const v=VIEWS.includes(location.hash.slice(1))?location.hash.slice(1):'log';VIEWS.forEach(n=>$('#v-'+n).hidden=n!==v);$$('#nav a').forEach(a=>a.getAttribute('href')==='#'+v?a.setAttribute('aria-current','page'):a.removeAttribute('aria-current'))}
 window.addEventListener('hashchange',route);
-function render(){renderHead();renderLog();renderList();renderStats();renderYears()}
+function render(){renderHead();renderLog();renderList();renderStats();renderYears();renderBackup()}
 setType('match');resetForm(false);render();route();
 }
 </script>

@@ -1,0 +1,16 @@
+{
+  "name": "Best of the Year",
+  "short_name": "Best Of",
+  "description": "Log the best wrestling matches and segments of the year, then crown your of-the-year picks.",
+  "start_url": "./#log",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#ff3d8b",
+  "theme_color": "#ff3d8b",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" },
+    { "src": "icons/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}
