@@ -503,5 +503,12 @@ function render(){renderHead();renderLog();renderList();renderStats();renderYear
 setType('match');resetForm(false);render();route();
 }
 </script>
+<script>
+if('serviceWorker' in navigator){
+  navigator.serviceWorker.register('sw.js',{updateViaCache:'none'}).then(r=>{
+    document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')r.update().catch(()=>{})});
+  }).catch(()=>{});
+}
+</script>
 </body>
 </html>
