@@ -2,7 +2,7 @@
 
 A personal app for logging the best wrestling matches and segments of the year while watching, then turning them into end-of-year awards: Wrestler, Match, Segment, Promotion and Show of the Year.
 
-The app is a single file, `index.html`, with no build step, plus its icons (`icons/`) and `manifest.webmanifest`. Open it in a browser or serve it with GitHub Pages. On a phone, use **Add to Home Screen** to install it with its own icon, full-screen.
+The app is a single file, `index.html`, with no build step, plus its icons (`icons/`) and `manifest.webmanifest`. A small service worker (`sw.js`) loads the newest version whenever you're online and keeps a copy for offline use; bump `VERSION` in `sw.js` with each release to clear old caches. Open it in a browser or serve it with GitHub Pages. On a phone, use **Add to Home Screen** to install it with its own icon, full-screen.
 
 ## Features
 
